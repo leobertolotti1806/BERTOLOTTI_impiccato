@@ -1,0 +1,400 @@
+@font-face {
+    font-family: "regular";
+    src: url(./font/RedHatDisplay-Medium.otf);
+}
+
+@font-face {
+    font-family: "lett";
+    src: url(./font/BD_Cartoon_Shout.ttf);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    margin: 0;
+    font-family: "regular" !important;
+    background-image: linear-gradient(to right, #108dc7, #ef8e38);
+}
+
+footer > b {
+    font-size: 2vh;
+}
+
+header , footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5.5vh;
+    background-color: #9DADBC;
+}
+
+header {
+    height: 8vh;
+}
+
+header > div{
+    display: flex;
+    height: 65%;
+    padding: 0px 20px;
+    width: 450px;
+    gap: 45px;
+    border-radius: 30px;
+    border: 0.5vh rgb(83, 58, 38) solid;
+}
+
+header > div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+header > div > span{
+    position: absolute;
+    width: 200%;
+    height: 1100%;
+    background-image: linear-gradient(to right, #ef8e38, #ef8e38, #ef8e38,
+        #e16470, #a25c90, #565883, #2f4858, #2f4858, #2f4858);
+    transition: transform 0.5s;
+}
+
+header > div > div{
+    z-index: 1;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+    font-size: 1.8vh;
+    transition: opacity 1s, font-size 1s;
+    opacity: 0.2;
+    animation: none;
+}
+
+.turno2 > span {
+    transform: rotate(180deg);
+}
+
+.turno1 > div:last-child , .turno2 > div:first-child{
+    font-size: 1.8vh;
+}
+
+.turno2 > div:last-child , .turno1 > div:first-child{
+    opacity: 1;
+    animation: pulse 0.9s alternate infinite;
+}
+
+@keyframes pulse {
+    0%  {text-shadow: 0 0 0.4vh aliceblue, 0 0 0.4vh aliceblue;
+    font-size: 3vh;}
+    100%{text-shadow: 0 0 0.4vh transparent, 0 0 0.4vh transparent;
+        font-size: 2.5vh;}
+}
+
+main{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    width: 100%;
+    height: 80%;
+}
+
+#player{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 90%;
+}
+
+#player > div , form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#player > div > b{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+#table{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 8px rgb(83, 58, 38) solid;
+    background-color: rgba(149, 104, 70, 0.75);
+    border-radius: 30px;
+    box-shadow: 6px 6px 10px black;
+}
+
+#table > div:first-child{
+    flex-grow: 1;
+    width: 100%;
+    background-color: green;
+}
+
+#table > div.pl {
+    justify-content: space-around;
+    max-height: 20%;
+    width: 100%;
+}
+
+#table .card {
+    height: 90%;
+    font-size: 150%;
+}
+
+input::placeholder{
+    color: rgba(255, 230, 216, 0.7);
+    font-weight: initial;
+}
+
+input.pl:hover, input.pl:focus-visible , input.pl:focus, button:hover{
+    border-color: #ef8e38;
+}
+
+input.pl.noFocus:hover, input.pl.noFocus:focus-visible, input.pl.noFocus:focus{
+    border-color: #533a26;
+}
+
+input.pl.noFocus::selection{
+    background-color: transparent;
+    color: #FFE6D8;
+}
+
+#lettera{
+    width: 280px;
+    height: 60px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFE6D8;
+    border-width: 0.5vh;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+button.pl {
+    width: fit-content;
+    height: fit-content;
+    padding: 0.7vh 3vh;
+    font-family: "regular";
+    font-size: 20px;
+    color: #FFE6D8;
+    border-width: 0.5vh;
+    border-radius: 2vh;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.pl{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5px;
+    width: 380px;
+    height: 80px;
+    box-sizing: border-box;
+    border: 6px rgb(83, 58, 38) solid;
+    border-radius: 20px;
+    box-shadow: 6px 6px 10px black;
+    background-color: #b04e34;
+}
+
+#table > div{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    box-sizing: border-box;
+    border: 4px #ffffff outset;
+    border-radius: 15px;
+    font-size: 3vh;
+    font-family: "lett";
+    background-color: #ffffff;
+    box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.6);
+    cursor: default;
+}
+
+#menu{
+    position: absolute;
+    z-index: 10;
+    top: -50vh;
+    left: calc(50vw - 17.5vh);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 35vh;
+    height: 20vh;
+    border: 0.8vh rgb(83, 58, 38) solid;
+    border-radius: 3vh;
+    box-shadow: 8px 8px 10px black;
+    background-image: linear-gradient(to right, #ef8e38,#e16470, #a25c90, #565883);
+    transition: top 1s;
+}
+
+#menu > b{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 3vh;
+}
+
+#menu > div {
+    display: flex;
+    justify-content: space-evenly;
+    height: 35%;
+    width: 100%;
+}
+
+#menu > div > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1vh;
+    width: 40%;
+    height: 4vh;
+    border: 0.5vh rgb(83, 58, 38) solid;
+    border-radius: 2vh;
+    font-size: 2vh;
+    font-family: "regular";
+    box-shadow: 6px 6px 10px black;
+    background-color: #b04e34;
+    cursor: pointer;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+#menu > div > button:hover{
+    transform: scale(110%);
+    border-color: #ef8e38;
+}
+
+@media screen and (max-height: 700px) {
+    main{
+        transform: scale(80%);
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    main{
+        gap: 40px;
+    }
+}
+
+@media screen and (max-width: 970px) {
+    #table{
+        width: 400px;
+        height: 400px;
+    }
+
+    #player{
+        height: 80%;
+    }
+
+    .pl{
+        width: 320px;
+        height: 70px;
+        border-width: 4px;
+    }
+
+    .card {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 810px) {
+    main{
+        gap: 0;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    #player{
+        gap: 1vh;
+        width: 100%;
+        height: fit-content;
+    }
+
+    .pl{
+        width: 320px;
+        height: 65px;
+    }
+
+    .card {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #player{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #player > div , form{
+        justify-content: center;
+    }
+
+    #player > div > b {
+        width: 30%;
+    }
+
+    .pl{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #table{
+        transform: scale(85%);
+    }
+
+    #player > div > b{
+        font-size: 17px;
+    }
+
+    header > div{
+        width: 80%;
+    }
+    
+    header > div > div{
+        font-size: 2.3vh !important;
+    }
+}
+
+@media screen and (max-width:370px) {
+    #table{
+        transform: scale(65%);
+    }
+
+    #lettera {
+        width: 90%;
+    }
+
+    header > div {
+        transform: scale(80%);
+    }
+}
