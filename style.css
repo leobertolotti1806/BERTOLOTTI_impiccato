@@ -8,6 +8,11 @@
     src: url(./font/BD_Cartoon_Shout.ttf);
 }
 
+::selection{
+    background-color: #ef8e38;
+    color: black;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -32,58 +37,52 @@ header , footer {
 
 header {
     height: 8vh;
+    padding: 0 2vh;
+    gap: 2vh;
 }
 
-header > div{
-    display: flex;
-    height: 65%;
-    padding: 0px 20px;
-    width: 450px;
-    gap: 45px;
-    border-radius: 30px;
-    border: 0.5vh rgb(83, 58, 38) solid;
-}
-
-header > div {
+#err{
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 60%;
+    height: 70%;
+    border-radius: 3vh;
+    border: 0.5vh #533a26 solid;
+    background-color: #B0F597;
+    /* background-image: linear-gradient(to right, #ef8e38, #ef8e38, #ef8e38,
+    #e16470, #a25c90, #565883, #2f4858, #2f4858, #2f4858); */
     overflow: hidden;
 }
 
-header > div > span{
+#err > div{
     position: absolute;
-    width: 200%;
-    height: 1100%;
-    background-image: linear-gradient(to right, #ef8e38, #ef8e38, #ef8e38,
-        #e16470, #a25c90, #565883, #2f4858, #2f4858, #2f4858);
-    transition: transform 0.5s;
-}
-
-header > div > div{
-    z-index: 1;
-    width: 50%;
+    left: 0;
     display: flex;
     justify-content: center;
+    width: 30%;
+    height: 100%;
+    background-image: linear-gradient(to right, #E1341E 80%, #B0F597);
+    transition: width 1s;
+}
+
+#err > b{
+    z-index: 2;
+    font-size: 2vh;
+    color: #533a26;
+}
+
+header > div.pl{
+    flex-grow: 1;
+    box-shadow: none;
+    padding: 0;
+    box-sizing: content-box;
+    border-radius: 3vh;
     color: aliceblue;
-    font-size: 1.8vh;
-    transition: opacity 1s, font-size 1s;
-    opacity: 0.2;
-    animation: none;
-}
-
-.turno2 > span {
-    transform: rotate(180deg);
-}
-
-.turno1 > div:last-child , .turno2 > div:first-child{
-    font-size: 1.8vh;
-}
-
-.turno2 > div:last-child , .turno1 > div:first-child{
-    opacity: 1;
-    animation: pulse 0.9s alternate infinite;
+    width: 40% !important;
+    border-width: 0.5vh;
+    height: 70%;
 }
 
 @keyframes pulse {
@@ -144,11 +143,18 @@ main{
     width: 100%;
 }
 
-#table > div:first-child > div {
+#table > div:first-child > div:nth-child(n+2) , #struttura > div{
     position: absolute;
     background-color: #ef8e38;
     border-radius: 10px;
     border: 2.5px #533a26 solid;
+}
+
+#struttura{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: transparent !important;
 }
 
 #base{
@@ -225,7 +231,7 @@ main{
     transform: skewX(-40deg);
 }
 
-#table > div:first-child > div:nth-child(n+7){
+#table > div:first-child > div:nth-child(n+5){
     width: 2%;
     height: 20%;
     left: 63.75%;
@@ -475,13 +481,9 @@ button.pl {
     #player > div > b{
         font-size: 17px;
     }
-
-    header > div{
-        width: 80%;
-    }
     
-    header > div > div{
-        font-size: 2.3vh !important;
+    header > div , header b{
+        font-size: 1.7vh !important;
     }
 }
 
@@ -492,9 +494,5 @@ button.pl {
 
     #lettera {
         width: 90%;
-    }
-
-    header > div {
-        transform: scale(80%);
     }
 }
