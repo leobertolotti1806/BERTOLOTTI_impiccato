@@ -138,10 +138,78 @@ main{
     box-shadow: 6px 6px 10px black;
 }
 
-#table > div:first-child{
+#table > div:first-child {
+    position: relative;
     flex-grow: 1;
     width: 100%;
     background-color: green;
+}
+
+#table > div:first-child > div {
+    position: absolute;
+    background-color: rgb(83, 58, 38);
+    border-radius: 3px;
+}
+
+#base{
+    bottom: 5%;
+    left: 5%;
+    width: 40%;
+    height: 2%;
+}
+
+#palo{
+    bottom: 6%;
+    height: 85%;
+    width: 2%;
+    left: 24%;
+}
+
+#asta{
+    top: 8%;
+    left: 24%;
+    width: 46%;
+    height: 2.5%;
+}
+
+#corda , #corpo{
+    top: 8%;
+    left: 69%;
+    height: 10%;
+    width: 2%;
+}
+
+#testa{
+    padding: 8%;
+    top: 17%;
+    left: 60.5%;
+    border: 6px rgb(83, 58, 38) solid;
+    border-radius: 50% !important;
+    background-color: transparent !important;
+}
+
+#corpo{
+    top: 40%;
+    height: 30%;
+}
+
+#table > div:first-child > div:nth-child(n+7){
+    width: 2%;
+    height: 20%;
+    left: 63.75%;
+}
+
+#braccioSx, #gambaSx{
+    transform: rotate(40deg);
+}
+
+#gambaSx , #gambaDx{
+    top: 65%;
+}
+
+#gambaDx , #braccioDx{
+    transform: rotate(-40deg);
+    left: 74% !important;
 }
 
 #table > div.pl {
