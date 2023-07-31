@@ -27,6 +27,7 @@ let parola = document.querySelector("#table > div.pl");
 let impiccato = document.querySelectorAll("#table > div:first-child > div");
 let tentativiDiv = document.getElementById("tentCount");
 let erroriDiv = document.getElementById("errCount");
+let menu = document.getElementById("menu");
 
 let inserite = [];
 
@@ -42,6 +43,7 @@ document.forms[0].addEventListener("submit", (e) => {
     e.preventDefault();
 
     let l = lett.value.toLowerCase();
+    lett.value = "";
 
     if (l != "") {
         if (!inserite.includes(l)) {
@@ -52,9 +54,18 @@ document.forms[0].addEventListener("submit", (e) => {
 
             if (p.includes(l)) {
                 /* c'è nella parola */
-                for (let i = 0; i < p.length; i++)
-                    if (p[i] == l)
+                let cont = 0;
+                for (let i = 0; i < p.length; i++) {
+                    if (p[i] == l) {
                         parola.children[i].textContent = l.toUpperCase();
+                        cont++;
+                    } else if (parola.children[i].textContent != "_") {
+                        cont++;
+                    }
+                }
+
+                if (cont == p.length)
+                    showMenu("Hai vinto con " + tentativi + " tentativi!");
 
             } else {
                 /* non c'è nella parola */
@@ -64,20 +75,18 @@ document.forms[0].addEventListener("submit", (e) => {
 
                 errori++;
 
-                erroriDiv.className = "animation";
-                erroriDiv.nextElementSibling.style.width = ((errori / 8) * 100) + "%"
+                erroriDiv.classList.add("animation");
+                erroriDiv.nextElementSibling.style.width = ((errori / 8) * 100) + "%";
 
-                setTimeout(() => {
-                    erroriDiv.textContent = errori + " Errori";
-                }, 500);
+                if (errori > 5)
+                    erroriDiv.classList.add("pulse");
 
-                setTimeout(() => {
-                    erroriDiv.className = "";
-                }, 1000);
+                setTimeout(() => { erroriDiv.textContent = errori + " Errori"; }, 500);
 
-                if (errori > 8) {
-                    /* HAI PERSO */
-                }
+                setTimeout(() => { erroriDiv.classList.remove("animation"); }, 1000);
+
+                if (errori == 8)
+                    showMenu("Hai perso con " + errori + " errori!<br>La parola era " + p);
             }
 
             tentativiDiv.className = "animation";
@@ -93,3 +102,50 @@ document.forms[0].addEventListener("submit", (e) => {
         } else alert("Lettera già inserita!");
     } else alert("Inserisci una lettera!");
 });
+
+function showMenu(msg) {
+    lett.disabled = true;
+    lett.nextElementSibling.disabled = true;
+
+    menu.querySelector("b").innerHTML = msg;
+
+    menu.style.top = "8vh";
+
+    menu.querySelector("#play").onclick = () => {
+        if (confirm("Rigiocare?")) {
+            lett.disabled = false;
+            lett.nextElementSibling.disabled = false;
+
+            menu.style.top = "";
+
+            p = parole[Math.floor(Math.random() * 20)];
+
+            bandite.innerHTML = "";
+            parola.innerHTML = "";
+
+            for (let i = 0; i < p.length; i++)
+                parola.innerHTML += "<div class='card'>_</div>";
+
+            for (const i of impiccato)
+                i.style.opacity = "";
+
+            tentativi = 0;
+            errori = 0;
+
+            inserite = [];
+
+            tentativiDiv.className = "";
+            erroriDiv.className = "";
+
+            tentativiDiv.textContent = "0 Tentativi";
+            erroriDiv.textContent = "0 Errori";
+
+            erroriDiv.nextElementSibling.style.width = "";
+        }
+    };
+
+    menu.querySelector("#close").onclick = () => {
+        if (confirm("Vuoi uscire?"))
+            close();
+    };
+}
