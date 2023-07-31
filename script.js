@@ -88,10 +88,12 @@ function showMenu(msg) {
 }
 
 function reset(time) {
-    errWarning.style.animation = "";
-    lett.disabled = false;
-    lett.focus();
-    lett.nextElementSibling.disabled = false;
+    setTimeout(() => {
+        errWarning.style.animation = "";
+        lett.disabled = false;
+        lett.focus();
+        lett.nextElementSibling.disabled = false;
+    }, time);
 }
 
 document.forms[0].addEventListener("submit", (e) => {
