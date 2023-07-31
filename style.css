@@ -38,7 +38,21 @@ header , footer {
 header {
     height: 8vh;
     padding: 0 2vh;
+    justify-content: space-around;
     gap: 2vh;
+}
+
+header > div.pl{
+    position: relative;
+    width: 300px !important;
+    height: 70%;
+    padding: 0;
+    box-sizing: content-box;
+    border-radius: 3vh;
+    border-width: 0.5vh;
+    color: aliceblue;
+    box-shadow: none;
+    overflow: hidden;
 }
 
 #err{
@@ -46,10 +60,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60%;
+    width: 300px !important;
     height: 70%;
-    border-radius: 3vh;
     border: 0.5vh #533a26 solid;
+    border-radius: 3vh;
     background-color: #B0F597;
     /* background-image: linear-gradient(to right, #ef8e38, #ef8e38, #ef8e38,
     #e16470, #a25c90, #565883, #2f4858, #2f4858, #2f4858); */
@@ -61,28 +75,45 @@ header {
     left: 0;
     display: flex;
     justify-content: center;
-    width: 30%;
+    width: 0%;
     height: 100%;
     background-image: linear-gradient(to right, #E1341E 80%, #B0F597);
-    transition: width 1s;
+    transition: width 1s ease-in-out;
+}
+
+header b{
+    position: absolute;
+    z-index: 2;
+    transition: top 1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vh;
+    width: 100%;
+    height: 100%;
 }
 
 #err > b{
-    z-index: 2;
-    font-size: 2vh;
     color: #533a26;
 }
 
-header > div.pl{
-    flex-grow: 1;
-    box-shadow: none;
-    padding: 0;
-    box-sizing: content-box;
-    border-radius: 3vh;
-    color: aliceblue;
-    width: 40% !important;
-    border-width: 0.5vh;
-    height: 70%;
+.animation {
+    animation: 1s change ease-in-out;
+    top: 0;
+}
+
+@keyframes change {
+    50%{
+        top: 100%;
+    }
+    51%{
+        z-index: -1;
+        top: -50%;
+    }
+    85%{
+        z-index: 2;
+        top: 0%;
+    }
 }
 
 @keyframes pulse {
@@ -141,6 +172,11 @@ main{
     position: relative;
     flex-grow: 1;
     width: 100%;
+}
+
+#table > div:first-child > div{
+    transition: opacity 1s;
+    opacity: 0;
 }
 
 #table > div:first-child > div:nth-child(n+2) , #struttura > div{
@@ -414,6 +450,10 @@ button.pl {
         height: 400px;
     }
 
+    header > div.pl , #err{
+        width: 50% !important;
+    }
+
     #player{
         height: 80%;
     }
@@ -484,6 +524,12 @@ button.pl {
     
     header > div , header b{
         font-size: 1.7vh !important;
+    }
+    
+    #bandite > div.card{
+        font-size: 2vh;
+        width: 40px;
+        height: 40px;
     }
 }
 
