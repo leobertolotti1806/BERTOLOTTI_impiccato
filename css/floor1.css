@@ -1,0 +1,95 @@
+#menu > button:first-child:hover {
+    transform: translateY(1vh);
+}
+
+#menu > button:last-child:hover {
+    transform: translateY(-1vh);
+}
+
+main {
+    display: grid;
+    grid-template-areas:
+        's s b b c c'
+        's s b b c c'
+        'o o o o o scale';
+    width: 1300px;
+    height: 700px;
+    background-color: #534439;
+    border: 1vh #534439 solid;
+}
+
+main > div{
+    background-size: 100% 100%;
+    box-sizing: border-box;
+}
+
+
+#cucina {
+    grid-area: c;
+    background-image: url(../img/cucina.jpeg);
+}
+
+#sala {
+    grid-area: s;
+    border-right: 1vh #534439 solid;
+    background-image: url(../img/salotto.avif);
+}
+
+#corridoio {
+    grid-area: o;
+    border-top: 1vh #534439 solid;
+    background-image: url(../img/parquet.jpg);
+}
+
+#scale {
+    grid-area: scale;
+    border-top: 1vh #534439 solid;
+    background-color: green;
+}
+
+#bagno {
+    grid-area: b;
+    border-right: 1vh #534439 solid;
+    background-image: url(../img/bagno.jpg);
+}
+
+@media screen and (max-width: 1400px) {
+    main{
+        width: 910px;
+        height: 490px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    main{
+        width: 700px;
+        height: 380px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    main{
+        width: 590px;
+        height: 318px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    main{
+        width: 410px;
+        height: 220px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    main{
+        width: 330px;
+        height: 176px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    main{
+        transform: scale(80%);
+    }
+}

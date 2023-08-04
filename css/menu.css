@@ -1,0 +1,71 @@
+@font-face {
+    font-family: "regular";
+    src: url(../RedHatDisplay-Medium.otf);
+}
+
+::selection{
+    background-color: #ef8e38;
+    color: black;
+}
+
+span.material-symbols-rounded{
+    font-weight: 1000;
+    font-size: 2.7vh;
+}
+
+body{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: "regular" !important;
+    background-image: linear-gradient(to right, #108dc7, #ef8e38);
+    overflow: hidden;
+}
+
+#menu{
+    position: absolute;
+    z-index: 10;
+    top: 3vh;
+    right: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 35vh;
+    height: 10vh;
+    border: 0.7vh rgb(83, 58, 38) solid;
+    border-radius: 3vh;
+    box-shadow: 1vh 1vh 1vh black;
+    background-image: linear-gradient(to right, #ef8e38,#e16470, #a25c90, #565883);
+}
+
+#menu > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1vh;
+    width: 40%;
+    height: 5vh;
+    border-radius: 2vh;
+    font-size: 2vh;
+    font-family: "regular";
+    color: #FFE6D8;
+    box-shadow: 0.8vh 0.8vh 1vh black;
+    border: 0.5vh rgb(83, 58, 38) solid;
+    background-color: #b04e34;
+    cursor: pointer;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+#menu > button:hover{
+    border-color: #ef8e38;
+}
+
+@media screen and (max-width: 378px) {
+    #menu{
+        top: 0.5vh;
+        right: -1vh;
+        transform: scale(80%);
+    }
+}
