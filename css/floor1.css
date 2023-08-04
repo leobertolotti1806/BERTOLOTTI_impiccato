@@ -15,14 +15,19 @@ main {
     width: 1300px;
     height: 700px;
     background-color: #534439;
-    border: 1vh #534439 solid;
+    border: 0.8vh #534439 solid;
 }
 
 main > div{
+    position: relative;
     background-size: 100% 100%;
     box-sizing: border-box;
+    filter: brightness(0.5);
 }
 
+.on{
+    filter: brightness(1);
+}
 
 #cucina {
     grid-area: c;
@@ -31,26 +36,72 @@ main > div{
 
 #sala {
     grid-area: s;
-    border-right: 1vh #534439 solid;
+    border-right: 0.8vh #534439 solid;
     background-image: url(../img/salotto.avif);
 }
 
 #corridoio {
     grid-area: o;
-    border-top: 1vh #534439 solid;
+    border-top: 0.8vh #534439 solid;
     background-image: url(../img/parquet.jpg);
 }
 
 #scale {
     grid-area: scale;
-    border-top: 1vh #534439 solid;
+    border-top: 0.8vh #534439 solid;
     background-color: green;
 }
 
 #bagno {
     grid-area: b;
-    border-right: 1vh #534439 solid;
+    border-right: 0.8vh #534439 solid;
     background-image: url(../img/bagno.jpg);
+}
+
+.slider{
+    position: absolute;
+    bottom: 1vh;
+    right: 1vh;
+    width: 60px;
+    height: 34px;
+    border: 0.4vh #534439 solid;
+    border-radius: 3vh;
+    overflow: hidden;
+}
+
+.slider > span {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+}
+
+.slider > input{
+    display: none;
+}
+
+.slider > span:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    border-radius: 50%;
+    background-color: white;
+    transition: 0.4s;
+}
+
+.slider > input:checked + span {
+    background-color: #2196F3 !important;
+}
+
+.slider > input:checked + span::before {
+    transform: translateX(26px);
 }
 
 @media screen and (max-width: 1400px) {
@@ -79,12 +130,20 @@ main > div{
         width: 410px;
         height: 220px;
     }
+
+    label{
+        transform: scale(80%);
+    }
 }
 
 @media screen and (max-width: 430px) {
     main{
         width: 330px;
         height: 176px;
+    }
+
+    label{
+        transform: scale(70%);
     }
 }
 

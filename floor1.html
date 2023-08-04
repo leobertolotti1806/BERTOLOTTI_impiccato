@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,20 +11,40 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-    <script src="./js/floor1.js" defer></script>
+    <script src="./js/floor.js" defer></script>
 
     <link rel="icon" href="./img/icon.png">
 
     <title>Piano 1</title>
 </head>
-<body>
 
+<body>
     <main>
-        <div id="cucina"></div>
-        <div id="sala"></div>
-        <div id="corridoio"></div>
+        <div id="cucina">
+            <label class="slider">
+                <input type="checkbox">
+                <span></span>
+            </label>
+        </div>
+        <div id="sala">
+            <label class="slider">
+                <input type="checkbox">
+                <span></span>
+            </label>
+        </div>
+        <div id="corridoio">
+            <label class="slider">
+                <input type="checkbox">
+                <span></span>
+            </label>
+        </div>
+        <div class="on" id="bagno">
+            <label class="slider">
+                <input type="checkbox">
+                <span></span>
+            </label>
+        </div>
         <div id="scale"></div>
-        <div id="bagno"></div>
     </main>
 
     <div id="menu">
@@ -41,4 +62,5 @@
         </button>
     </div>
 </body>
+
 </html>
